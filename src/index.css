@@ -1,0 +1,505 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #04a2eb;
+}
+
+body {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  height: 100vh;
+  overflow: hidden;
+}
+
+button {
+  border-radius: 8px;
+  border: 2px solid transparent;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #04a2eb;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* header */
+
+/* Links */
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.buttons a button {
+  width: 90px;
+}
+
+.buttons a:first-child button {
+  border-radius: 6px 0 0 6px;
+}
+
+.buttons a:last-child button {
+  border-radius: 0 6px 6px 0;
+}
+
+.active button {
+  background-color: #196283;
+}
+.info {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f4964;
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .info {
+    display: none;
+  }
+}
+/* header */
+header {
+  margin-bottom: 30px;
+  padding: 5px 15px;
+  max-height: 80px;
+  height: auto;
+}
+
+/* map */
+.leaflet-container {
+  height: 100vh;
+}
+
+.popup {
+  display: flex !important;
+  flex-direction: column;
+  gap: 5px;
+}
+.popup span {
+  color: #1a1a1a;
+  text-align: center;
+  font-size: 15px;
+}
+/* modal */
+.modal-outher {
+  position: fixed;
+  z-index: 999999;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+
+  .modal-inner {
+    background-color: #303030;
+    padding: 20px;
+    height: 80%;
+    width: 350px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 20px #41ccb2;
+    margin-left: 10px;
+    margin-top: 80px;
+    overflow-y: auto;
+  }
+}
+@media (max-width: 650px) {
+  .modal-outher {
+    inset: 0;
+    backdrop-filter: blur(2px);
+    justify-content: center;
+    .modal-inner {
+      width: 70%;
+      margin-top: 15px;
+    }
+  }
+}
+@media (max-width: 450px) {
+  .modal-outher {
+    inset: 0;
+    .modal-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      padding: 10px;
+      margin-left: 0;
+      margin-top: 0;
+      box-shadow: none;
+    }
+  }
+}
+
+/* modal içi */
+
+.close-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: #207061;
+  border-radius: 8px;
+  padding: 0 8px;
+  div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    h3 {
+      margin: 0;
+      font-size: large;
+      color: #fab007;
+    }
+    .number {
+      background: gray;
+      border-radius: 5px;
+      font-size: small;
+      padding: 2px;
+    }
+    .model {
+      background: #325f79;
+      border-radius: 5px;
+      font-size: small;
+      padding: 2px 4px;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+}
+
+.details {
+  margin-top: 10px;
+}
+
+/* gallery */
+
+.slider {
+  height: 200px;
+  overflow: hidden;
+  img {
+    object-fit: contain;
+    width: 100%;
+    border-radius: 10px;
+  }
+}
+
+/* airport */
+
+.airport {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  position: relative;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    &:nth-child(1) {
+      border-right: 3px solid rgb(163, 179, 163);
+    }
+  }
+}
+
+.airport .plane-img {
+  background: rgb(93, 112, 93);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.airport .plane-img img {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.airport span {
+  font-size: 10px;
+  color: #b1aeae;
+}
+
+.question {
+  color: #116f9a;
+}
+
+.warning {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: rgb(144, 137, 137);
+}
+/* time */
+.time {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-top: 25px;
+  background: #dbe7e8;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.time div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid #adc5c1c3;
+
+  &:nth-child(3),
+  &:nth-child(4) {
+    border-bottom: none;
+    padding-top: 0px;
+  }
+
+  &:nth-child(2),
+  &:nth-child(4) {
+    padding-right: 10px;
+    padding-top: 5px;
+  }
+
+  &:nth-child(1),
+  &:nth-child(3) {
+    border-right: 4px solid rgb(163, 179, 163);
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+}
+
+.time p {
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+  margin: 0;
+}
+
+.time span {
+  font-size: 12px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* uçak bilgileri */
+
+.aircraft {
+  display: flex;
+  gap: 10px;
+  margin-top: 40px;
+  .icon {
+    background: #adc5c1c3;
+    border-radius: 4px;
+    padding: 6px 2px;
+    svg {
+      font-size: 25px;
+      color: rgb(13, 114, 130);
+    }
+  }
+  div {
+    background: rgb(111, 130, 123);
+    padding: 3px;
+    border-radius: 4px;
+    div {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    p {
+      display: flex;
+      flex-direction: column;
+      .title {
+        color: rgb(247, 245, 245);
+
+        font-size: 14px;
+        white-space: nowrap;
+      }
+      span {
+        font-weight: 600;
+        color: #222;
+      }
+    }
+  }
+  small {
+    color: rgb(255, 208, 0);
+    font-size: 12;
+  }
+}
+
+/* loader */
+
+.loader-wrapper {
+  display: grid;
+  height: 100%;
+  place-items: center;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  scale: 0.7;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  background: transparent;
+  border: 1px dashed#444;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dashed#444;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 1px dashed #fff;
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #30ae97;
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(30px) drop-shadow(20px 20px 20px #30a48f);
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* error */
+.error {
+  margin-top: 80px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: #d5cfcf;
+  border: 1px solid #d0aeae;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.error-icon {
+  font-size: 50px;
+  color: #b06865;
+}
+
+h2 {
+  color: #1a83a5;
+  margin-top: 10px;
+}
+
+p {
+  color: #6c757d;
+  margin: 10px 0;
+}
+
+/* list */
+.list-container {
+  width: 100%;
+  margin-top: 100px;
+}
+
+/* pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  li {
+    padding: 10px 15px;
+    background: black;
+    a {
+      color: #0787a3;
+    }
+  }
+  li:first-child {
+    border-radius: 8px 0 0 8px;
+    white-space: nowrap;
+    color: blue !important;
+  }
+  li:last-child {
+    border-radius: 0 8px 8px 0;
+    white-space: nowrap;
+  }
+  .selected {
+    background: #0787a3;
+  }
+}
