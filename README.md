@@ -100,20 +100,19 @@ npm run build
 - `.env` dosyası zaten `.gitignore` dosyasına dahil edilmiştir
 - API anahtarları gibi hassas veriler için her zaman environment variables kullanın
 
-
 ### 🖼️ Proje Görünümü
 
 #### Ana Sayfa - Harita Görünümü
 
-![Ana Sayfa](dist/1.png)
+![Ana Sayfa](public/1.png)
 
 #### Uçuş Listesi
 
-![Uçuş Listesi](dist/2.png)
+![Uçuş Listesi](public/2.png)
 
 #### Uçuş Detayları Modal
 
-![Uçuş Detayları](dist/3.png)
+![Uçuş Detayları](public/3.png)
 
 ---
 
@@ -213,17 +212,16 @@ npm run build
 - The `.env` file is already included in `.gitignore`
 - Always use environment variables for sensitive data like API keys
 
-
 ### 🖼️ Proje Görünümü
 
 #### Ana Sayfa - Harita Görünümü
 
-![Ana Sayfa](dist/1.png)
+![Ana Sayfa](public/1.png)
 
 #### Uçuş Listesi
 
-![Uçuş Listesi](dist/2.png)
+![Uçuş Listesi](public/2.png)
 
 #### Uçuş Detayları Modal
 
-![Uçuş Detayları](dist/3.png)
+![Uçuş Detayları](public/3.png)
